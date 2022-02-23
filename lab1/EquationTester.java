@@ -10,7 +10,7 @@ public class EquationTester {
     public static void main(String[] args){
 
         Scanner in = new Scanner(System.in);
-        
+        /*
         String[] eq1_strArr = new String[3];
         int[] eq1_intArr = new int[3];
         String[] eq2_strArr = new String[3];
@@ -29,14 +29,28 @@ public class EquationTester {
         for (int i = 0; i < eq2_intArr.length; i++){
             eq2_intArr[i] = Integer.parseInt(eq2_strArr[i]);
         }
+        */
 
-        Equation test1 = new Equation(eq1_intArr[0], eq1_intArr[1], eq1_intArr[2]);
-        Equation test2 = new Equation(eq2_intArr[0], eq2_intArr[1], eq2_intArr[2]);
+        System.out.print("Enter a, b, and c for equation1: ");
+        Equation test1 = new Equation(in.nextInt(), in.nextInt(), in.nextInt());
+
+        System.out.print("Enter a, b, and c for equation2: ");
+        Equation test2 = new Equation(in.nextInt(), in.nextInt(), in.nextInt());
 
         System.out.println("-".repeat(30));
+        System.out.println("Equations: ");
 
         System.out.println("Equation 1: "+ test1);
         System.out.println("Equation 2: "+ test2);
+
+        System.out.println("-".repeat(30));
+
+        //System.out.println("Reduced equations: ");
+        ////test1.reduceEquation();
+        ////test2.reduceEquation();
+        //System.out.println("Equation 1: " + test1);
+        //System.out.println("Equation 2: " + test2);
+
         System.out.println("-".repeat(30));
 
         System.out.println("Is equal: "+ test1.equals(test2));

@@ -22,7 +22,7 @@ public class Equation {
             this.a = a;
             this.c = c; 
         }
-        reduceEquation();  
+        //reduceEquation();  
     }
 
     // PART 1/3 //
@@ -43,16 +43,20 @@ public class Equation {
         int newA = this.a + eq2.a;
         int newB = this.b + eq2.b;
         int newC = this.c + eq2.c;
+        Equation newEq = new Equation(newA, newB, newC);
+        newEq.reduceEquation();
 
-        return new Equation(newA, newB, newC);
+        return newEq;
     }
 
     public Equation subtract(Equation eq2) {
         int newA = this.a - eq2.a;
         int newB = this.b - eq2.b;
         int newC = this.c - eq2.c;
+        Equation newEq = new Equation(newA, newB, newC);
+        newEq.reduceEquation();
 
-        return new Equation(newA, newB, newC);
+        return newEq;
     }
 
     // PART 2/2 //
@@ -89,8 +93,13 @@ public class Equation {
             return false;
         if (this.getClass() != otherEquation.getClass())
             return false;
+        
         Equation other = (Equation) otherEquation;
-        return a == other.a && b == other.b && c == other.c;
+        Equation tmp = new Equation (a, b, c);
+        Equation tmp2 = new Equation(other.a, other.b, other.c);
+        tmp.reduceEquation();
+        tmp2.reduceEquation();
+        return tmp.a == tmp2.a && tmp.b == tmp2.b && tmp.c == tmp2.c;
     }
 
     //helper methods
@@ -105,7 +114,7 @@ public class Equation {
         else if (y == 0)
             return x;
         else {
-            while (x != y){
+            while (x != y){     
                 if (x > y)
                     x -= y;
                 else
