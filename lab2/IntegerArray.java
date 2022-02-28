@@ -233,19 +233,21 @@ public class IntegerArray implements Comparable<Object> {
     @Override
     public int compareTo(Object o) {
         IntegerArray other = (IntegerArray) o;
+        if (this.equals(other))
+            return 0;
         if (this.numberOfDigits() == other.numberOfDigits()) {
-            if (this.MID() - other.MID() > 0)
-                return 1;
-            else if (this.MID() - other.MID() < 0)
-                return -1;
-            return 0;
+            for (int i = 0; i < numberOfDigits(); i++) {
+                if (this.digits[i] > other.digits[i]){
+                    return 1;
+                }
+                else if (this.digits[i] < other.digits[1]){
+                    return -1;
+                }
+            }
         }
-        else if (this.numberOfDigits() > other.numberOfDigits()) 
+        if (this.numberOfDigits() > other.numberOfDigits()) 
             return 1;
-        else if (this.numberOfDigits() < other.numberOfDigits())
-            return -1;
-        else 
-            return 0;
+        return -1;
     }
 
     public boolean equals(Object o) {
@@ -260,6 +262,7 @@ public class IntegerArray implements Comparable<Object> {
                 breaker = true;
             else {
                 breaker = false;
+                return breaker;
             }
         }
         return breaker;

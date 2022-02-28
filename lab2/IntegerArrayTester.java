@@ -16,8 +16,6 @@ public class IntegerArrayTester {
         // System.out.print("Enter the String for arr4: ");
         // IntegerArray arr4 = new IntegerArray(in.next());
 
-        
-
         IntegerArray arr1 = new IntegerArray("3232");
         IntegerArray arr2 = new IntegerArray("2343");
         IntegerArray arr3 = new IntegerArray("12312");
@@ -46,8 +44,7 @@ public class IntegerArrayTester {
         System.out.println("Is Arr3 equal to Arr4? : " + arr3.equals(arr4));
         System.out.println("Is Arr4 equal to Arr5? : " + arr5.equals(arr4));
         System.out.println("~".repeat(35));
-
-
+        
         // Test1.txt
         System.out.print("Please enter the filename: ");
         String file_name = in.nextLine();
