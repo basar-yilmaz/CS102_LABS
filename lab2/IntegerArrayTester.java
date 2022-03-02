@@ -16,8 +16,8 @@ public class IntegerArrayTester {
         // System.out.print("Enter the String for arr4: ");
         // IntegerArray arr4 = new IntegerArray(in.next());
 
-        IntegerArray arr1 = new IntegerArray("3232");
-        IntegerArray arr2 = new IntegerArray("2343");
+        IntegerArray arr1 = new IntegerArray("-30");
+        IntegerArray arr2 = new IntegerArray("-90");
         IntegerArray arr3 = new IntegerArray("12312");
         IntegerArray arr4 = new IntegerArray("0123213");
         IntegerArray arr5 = new IntegerArray("0123213");
@@ -130,9 +130,9 @@ public class IntegerArrayTester {
 
     public static IntegerArrayList readIntegerArraysFromFile(String fileName) {
         IntegerArrayList numbers = new IntegerArrayList();
-        String path = "C:/Drive/21-22 Spring/CS 102 - 3/labs/lab2/" + fileName;
+        //String path = "C:/Drive/21-22 Spring/CS 102 - 3/labs/lab2/" + fileName;
         try {
-            File myObj = new File(path);
+            File myObj = new File(fileName);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
