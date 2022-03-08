@@ -1,3 +1,7 @@
-public class Difficulty {
+public interface Difficulty {
+
+    void setDifficulty(int difficulty);
+
+    int getDifficulty();
     
 }
