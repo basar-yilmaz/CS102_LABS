@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import java.awt.*;
 
 public class Player {
@@ -7,14 +8,24 @@ public class Player {
     private final double DAMAGE = 50;
 
     private ArrayList<EnemyVehicle> enemyVehicles;
+    private int score;
 
 
     public Player(){
         enemyVehicles = new ArrayList<EnemyVehicle>();
+        score = 0;
     }
 
     public void addEnemyVehicle(EnemyVehicle enemy) {
         enemyVehicles.add(enemy);
+    }
+
+    public ArrayList<EnemyVehicle> enemies() {
+        return enemyVehicles;
+    }
+
+    public void addScore() {
+        score = score + 1;
     }
 
     public void attack(int x, int y, ArrayList<EnemyVehicle> enemies) {

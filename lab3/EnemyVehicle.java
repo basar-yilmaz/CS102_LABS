@@ -4,17 +4,20 @@ import java.util.Random;
 abstract class EnemyVehicle implements Movable, Destructible {
 
     private final int BASE_SPEED = 3;
+    private final double HEALTH_POINTS = 100;
+
 
     private Point point;
     protected int speed;
+    protected double hp;
 
     public EnemyVehicle(int minX, int maxX, int y) {
         Random rn = new Random();
-        int random_x = rn.nextInt(maxX-minX+1) + minX;
+        int random_x = rn.nextInt(maxX-minX) + minX;
 
         this.speed = BASE_SPEED;
         this.point = new Point(random_x, y);
-
+        this.hp = HEALTH_POINTS;
     }
 
     public int getDistanceToBorder() {
@@ -23,17 +26,16 @@ abstract class EnemyVehicle implements Movable, Destructible {
 
     abstract String getType();
 
-
     @Override
     public boolean isDestroyed() {
-        // TODO Auto-generated method stub
+        if (this.hp <= 0)
+            return true;
         return false;
     }
 
     @Override
     public void takeDamage(double damage) {
-        // TODO Auto-generated method stub
-        
+        this.hp -= damage; 
     }
 
     @Override
