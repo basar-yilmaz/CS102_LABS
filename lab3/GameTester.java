@@ -10,31 +10,7 @@ public class GameTester {
 
         GamePlotter plot1 = new GamePlotter(game1);
 
-        plot1.plot();
-
-        System.out.println(listToString(game1.getEnemies()));
-
-        game1.pl.attack(0, 25, game1.getEnemies());
-        
-
-        game1.getEnemies().get(0).move();
-        game1.getEnemies().get(1).move();
-        game1.getEnemies().get(2).move();
-        game1.getEnemies().get(3).move();
-        plot1.plot();
-
-        System.out.println(listToString(game1.getEnemies()));
-
-        game1.pl.attack(5, 22, game1.getEnemies());
-        
-
-        game1.getEnemies().get(0).move();
-        game1.getEnemies().get(1).move();
-        game1.getEnemies().get(2).move();
-        game1.getEnemies().get(3).move();
-        plot1.plot();
-
-        System.out.println(listToString(game1.getEnemies()));
+        game1.play();
 
         
 
