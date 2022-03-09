@@ -24,6 +24,10 @@ public class Player {
         return enemyVehicles;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void addScore() {
         score = score + 1;
     }

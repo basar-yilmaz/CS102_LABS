@@ -8,7 +8,8 @@ public class Game implements Difficulty{
 
     private int difficulty;
     public Player pl;
-    GamePlotter plotter;
+    private GamePlotter plotter;
+    private int passingEnemy;
 
     
     public Game(int difficulty) {
@@ -18,6 +19,7 @@ public class Game implements Difficulty{
             pl.addEnemyVehicle(getNewRandomVehicle());
         }
         plotter = new GamePlotter(this);
+        passingEnemy = 0;
     }
 
     public ArrayList<EnemyVehicle> getEnemies() {
@@ -25,7 +27,6 @@ public class Game implements Difficulty{
     }
 
     public void play() {
-        int passingEnemy = 0;
         do {
             Scanner in = new Scanner(System.in);
 
@@ -45,8 +46,8 @@ public class Game implements Difficulty{
 
             pl.attack(x_axis, y_axis, getEnemies());
 
-            for (EnemyVehicle x : this.getEnemies()) {
-                x.move();
+            for (int i = 0; i < getEnemies().size(); i++) {
+                getEnemies().get(i).move();
             }
 
             int destroy_count = 0;
@@ -75,17 +76,17 @@ public class Game implements Difficulty{
                       
 
         }while(passingEnemy <= MAX_NO_OF_PASSING_ENEMIES);
-        
+        System.out.println();
+        System.out.println("Game Over!");
+        System.out.println();
     }
 
     public void printGameState() {
         System.out.println("~".repeat(61));
         plotter.plot();
         System.out.println(listToString(this.getEnemies()));
-    }
-
-    public void enemiesTurn() {
-        
+        System.out.println("Player's score: "+ pl.getScore());
+        System.out.println("Passing enemies: "+ passingEnemy);
     }
 
     @Override
