@@ -1,19 +1,19 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class GameTester {
 
     public static void main(String[] args) {
-        final int EASY = 1;
-        final int MEDIUM = 2;
-        final int HARD = 3;
 
-        Game game1 = new Game(MEDIUM);
+        Scanner in = new Scanner(System.in);
+        System.out.print("Choose the difficulty ( 1 - EASY | 2 - MEDIUM | 3- HARD ): ");
+        int choice = in.nextInt();
 
-        GamePlotter plot1 = new GamePlotter(game1);
+        Game game1 = new Game(choice);
 
         game1.play();
 
         
-
+        in.close();
 
     }
 

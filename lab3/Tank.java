@@ -10,9 +10,9 @@ public class Tank extends EnemyVehicle{
     }
 
     public String toString() {
-        String result = "--> Position of the Tank (x, y) : (";
-        result += this.getLocation().getX()+", "+this.getLocation().getY()+")";
-        result += " \t Health Points: ";
+        String result = "Position of the Tank is (";
+        result += (int) getLocation().getX()+", "+(int) getLocation().getY()+")";
+        result += ". Health Points: ";
         result += this.hp;
         return result + "\n";
     }

@@ -1,5 +1,7 @@
 public class Helicopter extends EnemyVehicle {
 
+    final double SPEED_MODIFIER = 1.0;
+
     
 
     public Helicopter(int minX, int maxX, int y) {
@@ -9,13 +11,14 @@ public class Helicopter extends EnemyVehicle {
 
     public void move() {
         super.move();
-        speed += 1;
+        speed += SPEED_MODIFIER;
     }
 
     public String toString() {
-        String result = "--> Position of the Helicopter (x, y) : (";
-        result += this.getLocation().getX()+", "+this.getLocation().getY()+")";
-        result += " \t Health Points: ";
+        String result = "Position of the Helicopter is (";
+        result += (int) getLocation().getX()+", "+(int) getLocation().getY()+").";
+        result += " It is speed modifier is "+ SPEED_MODIFIER;
+        result += ". Health Points: ";
         result += this.hp;
         return result + "\n";
     }

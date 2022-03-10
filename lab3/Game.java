@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Game implements Difficulty{  
 
-    final public int STARTING_DISTANCE = 25;
+    final public int STARTING_DISTANCE = 20;
     final public int MAX_NO_OF_PASSING_ENEMIES = 10;
 
     private int difficulty;
@@ -84,9 +84,14 @@ public class Game implements Difficulty{
     public void printGameState() {
         System.out.println("~".repeat(61));
         plotter.plot();
-        System.out.println(listToString(this.getEnemies()));
+        System.out.println("~".repeat(61));
+
         System.out.println("Player's score: "+ pl.getScore());
         System.out.println("Passing enemies: "+ passingEnemy);
+        System.out.println("~".repeat(61));
+
+        System.out.println(listToString(this.getEnemies()));
+        
     }
 
     @Override
