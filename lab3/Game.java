@@ -50,35 +50,27 @@ public class Game implements Difficulty{
                 getEnemies().get(i).move();
             }
 
-            int destroy_count = 0;
             for (int i = 0; i < getEnemies().size(); i++) {
                 if (getEnemies().get(i).isDestroyed()) {
                     pl.addScore();
-                    pl.enemies().remove(i);
-                    destroy_count++;
+                    pl.enemies().set(i, getNewRandomVehicle());
                 }
             }
-            for (int i = 0; i < destroy_count; i++) {
-                pl.enemies().add(getNewRandomVehicle());
-            }
 
-            int passing_count = 0;
             for (int i = 0; i < getEnemies().size(); i++) {
                 if (getEnemies().get(i).getDistanceToBorder() <= 0) {
                     passingEnemy++;
-                    passing_count++;
-                    pl.enemies().remove(i);
+                    pl.enemies().set(i, getNewRandomVehicle());
                 }
             }
-            for (int i = 0; i < passing_count; i++) {
-                pl.enemies().add(getNewRandomVehicle());
-            }
+
                       
 
         }while(passingEnemy <= MAX_NO_OF_PASSING_ENEMIES);
         System.out.println();
         System.out.println("Game Over!");
         System.out.println();
+
     }
 
     public void printGameState() {

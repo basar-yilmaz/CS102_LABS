@@ -19,7 +19,7 @@ public class Tank extends EnemyVehicle{
 
     @Override
     public String getType() {
-        return "Tank";
+        return this.getClass().getName();
     }
     
 }

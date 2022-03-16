@@ -25,7 +25,7 @@ public class Helicopter extends EnemyVehicle {
 
     @Override
     public String getType() {
-        return "Helicopter";
+        return this.getClass().getName();
     }
     
     

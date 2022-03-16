@@ -21,14 +21,14 @@ abstract class EnemyVehicle implements Movable, Destructible {
     }
 
     public int getDistanceToBorder() {
-        return (int) this.point.getY();
+        return (int) point.getY();
     }
 
     abstract String getType();
 
     @Override
     public boolean isDestroyed() {
-        if (this.hp <= 0)
+        if (hp <= 0)
             return true;
         return false;
     }
