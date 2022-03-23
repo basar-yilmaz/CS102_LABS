@@ -60,10 +60,10 @@ public class StickFigureFrame extends JFrame {
     // SLIDER CREATOR
     public JPanel createSlider() {
         ChangeListener sliderl = new sliderListener();
-        height = new JSlider(JSlider.HORIZONTAL, 0, 2, 2);
+        height = new JSlider(JSlider.HORIZONTAL, 0, 5, 5);
         height.addChangeListener(sliderl);
 
-        height.setMinorTickSpacing(1);
+        height.setMinorTickSpacing(5);
         height.setMajorTickSpacing(1);
         height.setPaintTicks(true);
         height.setPaintLabels(true);
