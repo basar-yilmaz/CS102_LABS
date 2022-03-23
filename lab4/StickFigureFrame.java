@@ -12,7 +12,7 @@ public class StickFigureFrame extends JFrame {
     private static final int FRAME_WIDTH = 1000;
     private static final int FRAME_HEIGHT = 1000;
 
-    JPanel panel, vanishPanel, slidePanel, figurePanel, sliderPanel;
+    JPanel controlPanel, vanishPanel, slidePanel, figurePanel, sliderPanel;
     JComponent figure;
     JCheckBox nose, eyes, arms, backbone, head;
     JButton left, right, reset, colorChoose;
@@ -29,14 +29,14 @@ public class StickFigureFrame extends JFrame {
         this.setFigure();
         this.createControlPanel();
         
-
-        timer1 = new Timer(20, l1);
-        timer2 = new Timer(20, l2);
+        timer1 = new Timer(3, l1);
+        timer2 = new Timer(3, l2);
     }    
 
     private void setFigure() {
         component = new StickFigure(500, 750);
         figurePanel = new JPanel();
+        figurePanel.setBorder(BorderFactory.createLineBorder(Color.RED));
         figurePanel.add(component);
         add(figurePanel, BorderLayout.CENTER);
     }
@@ -44,16 +44,17 @@ public class StickFigureFrame extends JFrame {
     
     // CONTROL PANEL
     private void createControlPanel() {
-        vanishPanel = setCheckBoxes();
-        slidePanel = setMoveButtons();
-        sliderPanel = createSlider();
+        vanishPanel = setCheckBoxes(); vanishPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        slidePanel = setMoveButtons(); slidePanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        sliderPanel = createSlider(); sliderPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         
-        JPanel controPanel = new JPanel();
-        controPanel.add(vanishPanel);
-        controPanel.add(slidePanel);
-        controPanel.add(sliderPanel);
-    
-        add(controPanel, BorderLayout.SOUTH);
+        controlPanel = new JPanel();
+        controlPanel.add(vanishPanel);
+        controlPanel.add(slidePanel);
+        controlPanel.add(sliderPanel);
+        controlPanel.setBackground(Color.RED);
+        controlPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        add(controlPanel, BorderLayout.SOUTH);
     }
 
     // SLIDER CREATOR
@@ -84,24 +85,28 @@ public class StickFigureFrame extends JFrame {
     // BUTTON PANEL CREATOR
     public JPanel setMoveButtons() {
 
-        colorChoose = new JButton("Choose color"); colorChoose.setFocusable(false);
+        colorChoose = new JButton("Choose color"); colorChoose.setFocusable(false); 
+        colorChoose.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         l4 = new buttonColorChooser();
         colorChoose.addActionListener(l4);
-        
-        left = new JButton("Move Left"); left.setFocusable(false);
+
+        left = new JButton("<-- Move Left    "); left.setFocusable(false);
+        left.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         l1 = new buttonLeftListener();
         left.addActionListener(l1);
         
-        right = new JButton("Move Right"); right.setFocusable(false);
+        right = new JButton("    Move Right -->"); right.setFocusable(false);
+        right.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         l2 = new buttonRightListener();
         right.addActionListener(l2);
 
         reset = new JButton("RESET"); reset.setFocusable(false);
+        reset.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         l3 = new buttonResetListener();
         reset.addActionListener(l3);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setPreferredSize(new Dimension(150, 100));
+        buttonPanel.setPreferredSize(new Dimension(150, 150));
         // buttonPanel.setBorder(new TitledBorder(new EtchedBorder(), "Movement"));
         buttonPanel.setLayout(new GridLayout(4,1));
         buttonPanel.add(right);
@@ -116,10 +121,9 @@ public class StickFigureFrame extends JFrame {
 
         public void actionPerformed(ActionEvent e) {
             // JColorChooser colorChooser = new JColorChooser();
-
             Color color = JColorChooser.showDialog(component, "Pick a color", Color.BLACK);
-
             component.colorPicker(color);
+
         }
     }
 
@@ -127,23 +131,28 @@ public class StickFigureFrame extends JFrame {
     public class buttonRightListener implements ActionListener {
         
         public void actionPerformed(ActionEvent e) { 
-            if (timer1.isRunning()) {timer1.stop();}
+            if (timer1.isRunning()) {
+                timer1.stop();
+            }
             timer2.start();
             component.moveRight();   
         }
     }
+
     public class buttonLeftListener implements ActionListener {
         public void actionPerformed(ActionEvent e) { 
-            if (timer2.isRunning()){timer2.stop();}
+            if (timer2.isRunning()){
+                timer2.stop();
+            }
             timer1.start();
             component.moveLeft();  
             }
     }
+
     public class buttonResetListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             timer1.stop();
             timer2.stop();
-            component.moveReset();            
         }
     }
 
@@ -155,6 +164,8 @@ public class StickFigureFrame extends JFrame {
         backbone = new JCheckBox("Backbone", true);
         head = new JCheckBox("Head", true);
         JButton check = new JButton("Apply");
+        check.setFocusable(false);
+        check.setBorder(BorderFactory.createLineBorder(Color.BLUE));
         listener = new CheckBoxListener();
         check.addActionListener(listener);
 
