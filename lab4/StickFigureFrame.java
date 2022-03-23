@@ -85,19 +85,19 @@ public class StickFigureFrame extends JFrame {
     // BUTTON PANEL CREATOR
     public JPanel setMoveButtons() {
 
-        colorChoose = new JButton("Choose color");
+        colorChoose = new JButton("Choose color"); colorChoose.setFocusable(false);
         l4 = new buttonColorChooser();
         colorChoose.addActionListener(l4);
         
-        left = new JButton("Move Left");
+        left = new JButton("Move Left"); left.setFocusable(false);
         l1 = new buttonLeftListener();
         left.addActionListener(l1);
         
-        right = new JButton("Move Right");
+        right = new JButton("Move Right"); right.setFocusable(false);
         l2 = new buttonRightListener();
         right.addActionListener(l2);
 
-        reset = new JButton("RESET");
+        reset = new JButton("RESET"); reset.setFocusable(false);
         l3 = new buttonResetListener();
         reset.addActionListener(l3);
 
