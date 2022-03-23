@@ -13,8 +13,8 @@ public class StickFigure extends JComponent{
         x = baseX;
         y = baseY;
         initialX = x;
-        this.setSize(5);
-        this.setPreferredSize(new Dimension(750, 450));
+        this.setSize(8);
+        this.setPreferredSize(new Dimension(1000, 750));
     } 
 
     @Override
@@ -139,14 +139,14 @@ public class StickFigure extends JComponent{
 
     public void moveLeft() {
         if (x < 0 ){
-            x = 700; repaint(); return;
+            x = 999; repaint(); return;
         }
         x -= 10;
         repaint();
     }
     public void moveRight() {
-        if (x > 750){
-            x = 50; repaint(); return;
+        if (x > 1000){
+            x = 1; repaint(); return;
         }   
         x += 10;
         repaint();

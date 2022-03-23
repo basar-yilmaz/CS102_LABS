@@ -9,8 +9,8 @@ import java.awt.event.*;
 
 public class StickFigureFrame extends JFrame {
 
-    private static final int FRAME_WIDTH = 750;
-    private static final int FRAME_HEIGHT = 800;
+    private static final int FRAME_WIDTH = 1000;
+    private static final int FRAME_HEIGHT = 1000;
 
     JPanel panel, vanishPanel, slidePanel, figurePanel, sliderPanel;
     JComponent figure;
@@ -30,15 +30,14 @@ public class StickFigureFrame extends JFrame {
         this.createControlPanel();
         
 
-        timer1 = new Timer(100, l1);
-        timer2 = new Timer(100, l2);
+        timer1 = new Timer(20, l1);
+        timer2 = new Timer(20, l2);
     }    
 
     private void setFigure() {
-        component = new StickFigure(375, 400);
+        component = new StickFigure(500, 750);
         figurePanel = new JPanel();
         figurePanel.add(component);
-        // figurePanel.repaint();
         add(figurePanel, BorderLayout.CENTER);
     }
 
@@ -60,7 +59,7 @@ public class StickFigureFrame extends JFrame {
     // SLIDER CREATOR
     public JPanel createSlider() {
         ChangeListener sliderl = new sliderListener();
-        height = new JSlider(JSlider.HORIZONTAL, 0, 5, 5);
+        height = new JSlider(JSlider.HORIZONTAL, 0, 10, 8);
         height.addChangeListener(sliderl);
 
         height.setMinorTickSpacing(5);
