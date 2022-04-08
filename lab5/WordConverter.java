@@ -3,11 +3,14 @@ public class WordConverter {
 
 
     public static void main(String[] args) {
-        // System.out.printf("%s: %d\n","Should return 0",convert("plane", "plane"));
-        // System.out.printf("%s: %d\n","Should return 2",convert("exclamation", "excavation"));
-        // System.out.printf("%s: %d\n","Should return 3",convert("inquire", "ensure"));
-        // System.out.printf("%s: %d\n","Should return 3",convert("car", "race"));
+        System.out.printf("%s: %d\n","Should return 0",convert("plane", "plane"));
+        System.out.printf("%s: %d\n","Should return 2",convert("exclamation", "excavation"));
+        System.out.printf("%s: %d\n","Should return 3",convert("inquire", "ensure"));
+        System.out.printf("%s: %d\n","Should return 3",convert("car", "race"));
         System.out.printf("%s: %d\n","Should return 3",convert("sunday", "saturday"));
+        System.out.printf("%s: %d\n","Should return 5",convert("patates", "patlican"));
+        System.out.printf("%s: %d\n","Should return 3",convert("tate", "patates"));
+
     }
 
 
@@ -54,7 +57,7 @@ public class WordConverter {
         StringBuilder sb = new StringBuilder();
         sb.append(a.substring(0, index));
         sb.append(b.charAt(index));
-        sb.append(a.substring(index+1, a.length()));
+        sb.append(a.substring(index, a.length()));
         return sb.toString();
     }
 
