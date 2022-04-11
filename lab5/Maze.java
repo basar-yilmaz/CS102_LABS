@@ -67,7 +67,7 @@ public class Maze
       }
       return false;
    }
-   // [1,2,2,4]
+
    private int outRow(int row, int column) {
       for (int i = 0; i < portLocations.size(); i++) {
          if (portLocations.get(i)[0] == row && portLocations.get(i)[1] == column) {

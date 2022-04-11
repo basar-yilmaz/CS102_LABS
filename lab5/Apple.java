@@ -22,8 +22,6 @@ class Apple {
         if (a == 0) {
             return false;
         }
-        if (apple(n-3, k, a-1))
-            return true;
-        return apple(n-2, k, a-1);
+        return apple(n-2, k, a-1) || apple(n-3, k, a-1);
     }
 }
