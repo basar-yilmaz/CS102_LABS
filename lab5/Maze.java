@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 //********************************************************************
-//  Maze.java       Author: Lewis/Loftus
+//  Maze.java       Author: Lewis/Loftus 
+//  Edited by Başar YILMAZ
 //
 //  Represents a maze of characters. The goal is to get from the
 //  top left corner to the bottom right, following a path of 1s.
