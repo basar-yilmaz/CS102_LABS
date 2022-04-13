@@ -3,13 +3,13 @@ public class WordConverter {
 
 
     public static void main(String[] args) {
-        System.out.printf("%s: %d\n","Should return 0",convert("plane", "plane"));
-        System.out.printf("%s: %d\n","Should return 2",convert("exclamation", "excavation"));
-        System.out.printf("%s: %d\n","Should return 3",convert("inquire", "ensure"));
-        System.out.printf("%s: %d\n","Should return 3",convert("car", "race"));
-        System.out.printf("%s: %d\n","Should return 3",convert("sunday", "saturday"));
-        System.out.printf("%s: %d\n","Should return 5",convert("patates", "patlican"));
-        System.out.printf("%s: %d\n","Should return 3",convert("tate", "patates"));
+        System.out.printf("%s: %d %s\n","Should return 0",convert("plane", "plane"), "change(s) should be done.");
+        System.out.printf("%s: %d %s\n","Should return 2",convert("exclamation", "excavation"), "change(s) should be done.");
+        System.out.printf("%s: %d %s\n","Should return 3",convert("inquire", "ensure"), "change(s) should be done.");
+        System.out.printf("%s: %d %s\n","Should return 3",convert("car", "race"), "change(s) should be done.");
+        System.out.printf("%s: %d %s\n","Should return 3",convert("sunday", "saturday"), "change(s) should be done.");
+        System.out.printf("%s: %d %s\n","Should return 5",convert("patates", "patlican"), "change(s) should be done.");
+        System.out.printf("%s: %d %s\n","Should return 3",convert("tate", "patates"), "change(s) should be done.");
 
     }
 
