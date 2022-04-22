@@ -1,3 +1,4 @@
+package lab5;
 class Apple {
 // N = 29, k = 5, a = 10 => true
 // N = 75, k = 25, a = 7 => false

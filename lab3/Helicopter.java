@@ -1,3 +1,5 @@
+package lab3;
+
 public class Helicopter extends EnemyVehicle {
 
     final double SPEED_MODIFIER = 1.0;

@@ -1,3 +1,5 @@
+package lab5;
+
 //********************************************************************
 //  MazeSearch.java       Author: Lewis/Loftus
 //  Edited by Başar YILMAZ
@@ -59,6 +61,15 @@ public class MazeSearch
       labyrinth4.portalChoose(1, 5, 4, 0);
       labyrinth4.portalChoose(4, 1, 4, 4);
       go(labyrinth4);
+
+      int[][] grid5 = { {1, 0, 1, 0, 0, 0},
+                        {1, 1, 1, 1, 1, 0},
+                        {1, 1, 0, 0, 0, 1},
+                        {0, 0, 1, 1, 0, 1} };
+      Maze labyrinth5 = new Maze(grid5);
+      labyrinth5.portalChoose(1, 0, 3, 2);
+      labyrinth5.portalChoose(0, 2, 2, 5);
+      go(labyrinth5);
 
       
       }

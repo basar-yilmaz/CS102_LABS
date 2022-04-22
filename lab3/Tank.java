@@ -1,3 +1,5 @@
+package lab3;
+
 public class Tank extends EnemyVehicle{
 
     public Tank(int minX, int maxX, int y) {

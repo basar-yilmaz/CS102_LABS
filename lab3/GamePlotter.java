@@ -1,3 +1,5 @@
+package lab3;
+
 /**
  * Created by Halil on 28.10.2016.
  * This class provides a simple UI to visualize Game objects on the console.

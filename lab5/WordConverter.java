@@ -1,3 +1,4 @@
+package lab5;
 public class WordConverter {
 
 
@@ -60,17 +61,6 @@ public class WordConverter {
         sb.append(a.substring(index, a.length()));
         return sb.toString();
     }
-
-    /// a -->  car  1--> care 2--> rare 3--> race
-    /// b -->  race
-
-    /// a --> sunday 1--> saunday 2--> satunday 3--> saturday
-    /// a --> sunday 1--> sanday 2--> 
-    /// b --> saturday
-
-    /// a --> inquire 1--> nquire 2--> equire 3--> enuire 4--> ensire 5--> ensure
-    /// a --> inquire 1--> enquire 2--> enuire 3--> ensure
-    /// b --> ensure 
 
     // recursive convert method 'a' to 'b'
     public static int convert(String a, String b) {

@@ -1,3 +1,5 @@
+package lab3;
+
 import java.awt.Point;
 import java.util.Random;
 
