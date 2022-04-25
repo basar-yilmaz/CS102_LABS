@@ -12,38 +12,35 @@ public class QuickSortAnalyzer extends SortAnalyzer{
         quickSort(arr, 0, arr.length-1);
         return arr;
     }
+   
+    public void quickSort(Comparable[] arr, int low, int high) {
+        if (low < high) {
+            int p = partition(arr, low, high);
+            quickSort(arr, low, p-1);
+            quickSort(arr, p + 1, high);
+        }
+    }
 
-   /**
-      Adapted from Big Java
-   */
-   public void quickSort(Comparable[] a, int from, int to) {
-      if (from >= to) { return; }
-      int p = partition(a, from, to);
-      quickSort(a, from, p);
-      quickSort(a, p + 1, to);
-   }
-
-   /**
-      Adapted from Big Java
-   */
-    private int partition(Comparable[] arr, int from, int to) {
-        Comparable pivot = arr[from];
-        int i = from - 1;
-        int j = to + 1;
-        while (i < j) {
-            i++; 
-            while (compare(arr[i], pivot) < 0) {
-                i++; 
+    private int partition(Comparable[] arr, int low, int high) {
+        Comparable pivot = arr[high];
+        // pointer for greater element
+        int i = (low - 1);
+        // traverse through all elements
+        // compare each element with pivot
+        for (int j = low; j < high; j++) {
+            if (compare(arr[j], pivot) < 0) {
+                // if element smaller than pivot is found
+                // swap it with the greatr element pointed by i
+                i++;
+                // swapping element at i with element at j
+                swap(arr, i, j);
             }
-            j--;
-            while (compare(arr[j], pivot) > 0) {
-                j--;
-            }
-            if (i < j) 
-                swap(arr, i, j); 
-            }
-        return j;
-   }
+        }
+        // swap the pivot element with the greater element specified by i
+        swap(arr, i+1, high);
+        // return the position from where partition is done
+        return (i + 1);
+    }
 
     private void swap(Comparable[] arr, int i, int j) {
         Comparable tmp = arr[i];
