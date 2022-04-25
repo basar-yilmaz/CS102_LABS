@@ -11,38 +11,45 @@ public class MergeSortAnalyzer extends SortAnalyzer{
 
     @Override
     public Comparable[] sort(Comparable[] arr) {
+        System.out.println("Normal MergeSort");
         mergeSort(arr, 0, arr.length-1);
         return arr;
     }
 
-    private void merge(Comparable[] arr, int start, int mid, int end) {
-        Comparable[] tmp = new Comparable[end-start+1];
-        int i = start;
-        int j = mid+1;
-        int k = 0;
-        while (i <= mid && j <= end) {
-            if (compare(arr[i], arr[j]) < 0) {
-                tmp[k] = arr[i];
+    private void merge(Comparable[] arr, int start, int divide, int end) {
+        int l1 = divide - start + 1;
+        int l2 = end - divide;
+        Comparable[] tmp = new Comparable[l1];
+        Comparable[] tmp2 = new Comparable[l2];
+        for (int i = 0; i < l1; i++) {
+            tmp[i] = arr[start + i];
+        }
+        for (int i = 0; i < l2; i++) {
+            tmp2[i] = arr[divide + 1 + i];
+        }
+        int i, j, k;
+        i = 0;
+        j = 0;
+        k = start;
+        while (i < l1 && j < l2) {
+            if (compare(tmp[i], tmp2[j]) < 0) {
+                arr[k] = tmp[i];
                 i++;
-            } 
-            else {
-                tmp[k] = arr[j];
+            } else {
+                arr[k] = tmp2[j];
                 j++;
             }
             k++;
         }
-        while(i <= mid) {
-            tmp[k] = arr[i];
+        while(i < l1) {
+            arr[k] = tmp[i];
             i++;
             k++;
         }
-        while(j <= end) {
-            tmp[k] = arr[j];
+        while(j < l2) {
+            arr[k] = tmp2[j];
             j++;
             k++;
-        }
-        for (int l = 0; l < tmp.length; l++) {
-            arr[start+l] = tmp[l];
         }
     }
 

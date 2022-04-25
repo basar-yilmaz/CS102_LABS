@@ -2,6 +2,7 @@ package lab6;
 
 public class QuickSortAnalyzer extends SortAnalyzer{
 
+   
     @Override
     public int compareTo(Object o) {
         return 0;
@@ -9,6 +10,7 @@ public class QuickSortAnalyzer extends SortAnalyzer{
 
     @Override
     public Comparable[] sort(Comparable[] arr) {
+        System.out.println("Normal QuickSort");
         quickSort(arr, 0, arr.length-1);
         return arr;
     }
