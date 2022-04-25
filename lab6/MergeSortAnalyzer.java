@@ -1,5 +1,7 @@
 package lab6;
 
+import java.util.Arrays;
+
 public class MergeSortAnalyzer extends SortAnalyzer{
 
     @Override
@@ -50,6 +52,7 @@ public class MergeSortAnalyzer extends SortAnalyzer{
             mergeSort(arr, start, mid);
             mergeSort(arr, mid+1, end);
             merge(arr, start, mid, end);
+            // System.out.println(Arrays.toString(arr));
         }
     }
 

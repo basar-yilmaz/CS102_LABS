@@ -1,5 +1,7 @@
 package lab6;
 
+import java.util.Arrays;
+
 public class Tester {
 
     public static void main(String[] args) {
@@ -8,16 +10,16 @@ public class Tester {
             new DecreasingArrayGenerator(),
             new IncreasingArrayGenerator()
         };
-        // for (ArrayGenerator generator : generators) {
-        //     int[] arr = generator.generate(8);
-        //     System.out.println(arrayToString(arr));
-        // }
-        // System.out.println("-".repeat(31));
+        for (ArrayGenerator generator : generators) {
+            int[] arr = generator.generate(8);
+            System.out.println(Arrays.toString(arr));
+        }
+        System.out.println("-".repeat(31));
 
-        // for (ArrayGenerator generator : generators) {
-        //     Comparable[] arr = generator.generateC(8);
-        //     System.out.println(arrayToString2(arr));
-        // }
+        for (ArrayGenerator generator : generators) {
+            Comparable[] arr = generator.generateC(8);
+            System.out.println(Arrays.toString(arr));
+        }
 
         System.out.println("-".repeat(31));
 
@@ -26,14 +28,14 @@ public class Tester {
         System.out.println("Normal MergeSort");
 
         for (ArrayGenerator generator : generators) {
-            Comparable[] arr = generator.generateC(85);
-            System.out.printf("%s: %s\n","Unsorted List",arrayToString2(arr));
+            Comparable[] arr = generator.generateC(8);
+            System.out.printf("%s: %s\n","Unsorted List",Arrays.toString(arr));
             analyzer.sort(arr);
             if (analyzer.isSorted(arr)) {
-                System.out.printf("%s \n%s: %s\n","Process: Successfull!","Sorted List",arrayToString2(arr));
+                System.out.printf("%s \n%s: %s\n","Process: Successfull!","Sorted List",Arrays.toString(arr));
                 System.out.println(analyzer.getNumberOfComparisons()); 
             } else {
-                System.out.printf("%s: %s\n","Sorted failed!",arrayToString2(arr));
+                System.out.printf("%s: %s\n","Sorted failed!",Arrays.toString(arr));
             }
             System.out.println("-".repeat(31));
         }
@@ -46,13 +48,13 @@ public class Tester {
 
         for (ArrayGenerator generator : generators) {
             Comparable[] arr = generator.generateC(8);
-            System.out.printf("%s: %s\n","Unsorted List",arrayToString2(arr));
+            System.out.printf("%s: %s\n","Unsorted List",Arrays.toString(arr));
             quick1.sort(arr);
             if (quick1.isSorted(arr)) {
-                System.out.printf("%s \n%s: %s\n","Process: Successfull!","Sorted List",arrayToString2(arr));
+                System.out.printf("%s \n%s: %s\n","Process: Successfull!","Sorted List",Arrays.toString(arr));
                 System.out.println(quick1.getNumberOfComparisons()); 
             } else {
-                System.out.printf("%s: %s\n","Sorted failed!",arrayToString2(arr));
+                System.out.printf("%s: %s\n","Sorted failed!",Arrays.toString(arr));
             }
             System.out.println("-".repeat(31));
         }
@@ -62,7 +64,7 @@ public class Tester {
         // SortAnalyzer genMerge = new GeneralizeMergeSortAnalyzer();
 
         // for (ArrayGenerator generator : generators) {
-        //     Comparable[] arr = generator.generateC(50);
+        //     Comparable[] arr = generator.generateC(8);
         //     System.out.printf("%s: %s\n","Unsorted List",arrayToString2(arr));
         //     genMerge.sort(arr);
         //     if (genMerge.isSorted(arr)) {
@@ -75,33 +77,4 @@ public class Tester {
 
 
     }
-
-    public static String arrayToString(int[] arr) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (int i = 0; i < arr.length; i++) {
-            sb.append(arr[i]);
-            if (i < arr.length - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("]");
-        return sb.toString();
-        
-    }
-
-    public static String arrayToString2(Comparable[] arr) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (int i = 0; i < arr.length; i++) {
-            sb.append(arr[i]);
-            if (i < arr.length - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("]");
-        return sb.toString();
-        
-    }
-    
 }
