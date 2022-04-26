@@ -1,27 +1,17 @@
 package lab6;
+
 import java.util.Arrays;
 
-public class QuickSortAnalyzer extends SortAnalyzer{
-
-   
-    @Override
+public class GeneralizeQuickSortAnalyzer extends SortAnalyzer{
+    
     public int compareTo(Object o) {
         return 0;
     }
 
-    @Override
     public Comparable[] sort(Comparable[] arr) {
-        System.out.println("Normal QuickSort");
-        quickSort(arr, 0, arr.length-1);
+        System.out.println("Generalize QuickSort");
+        quickSort(arr, 0, arr.length-1, 5);
         return arr;
-    }
-   
-    public void quickSort(Comparable[] arr, int low, int high) {
-        if (low < high) {
-            int p = partition(arr, low, high);
-            quickSort(arr, low, p-1);
-            quickSort(arr, p + 1, high);
-        }
     }
 
     private int partition(Comparable[] arr, int low, int high) {
@@ -47,9 +37,25 @@ public class QuickSortAnalyzer extends SortAnalyzer{
         return (i + 1);
     }
 
+    private void quickSort(Comparable[] arr, int low, int high, int k) {
+        if (low < high) {
+            int[] pos = new int[k-1];
+            for (int i = 0; i < k-1; i++) {
+                pos[i] = partition(arr, low, high);
+            }
+            quickSort(arr, low, pos[0]-1, k);
+            for (int i = 0; i < k-1; i++) {
+                quickSort(arr, pos[i]+1, high, k);
+            }
+            // for (int i = k-1; i > 0; i--) {
+            //     quickSort(arr, pos[i]+1, high, k);
+            // }
+        }
+    }
+
     private void swap(Comparable[] arr, int i, int j) {
-        Comparable tmp = arr[i];
+        Comparable temp = arr[i];
         arr[i] = arr[j];
-        arr[j] = tmp;
+        arr[j] = temp;
     }
 }
