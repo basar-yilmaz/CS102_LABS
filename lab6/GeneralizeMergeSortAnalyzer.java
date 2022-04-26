@@ -5,72 +5,76 @@ public class GeneralizeMergeSortAnalyzer extends SortAnalyzer{
 
     @Override
     public int compareTo(Object o) {
-        // TODO Auto-generated method stub
         return 0;
     }
 
     @Override
     public Comparable[] sort(Comparable[] arr) {
         System.out.println("Generalize MergeSort");
-        mergeSort(arr, 5, 0, arr.length);
-        return arr;
+        return mergeSort(arr, 2, 0, arr.length);
     }
 
-
-    // low is left bound (included)
-    // q is start of right slice
-    // high is end of right slice (excluded)
-    public Comparable[] merge(Comparable[] a, int low, int q, int high) {
-        int n1 = q - low;  // length of first array
-        Comparable[] lt = new Comparable[n1];
-        for (int i = 0; i < n1; i++) {
-            lt[i] = a[low + i];
+    /**
+     * Merge sort algorithm
+     * @param low (included)
+     * @param q start of the second half
+     * @param high (excluded)
+     * @return the sorted slice
+     */
+    public Comparable[] merge(Comparable[] arr, int low, int q, int high) {
+        int l1 = q - low;  // length of first array
+        Comparable[] temp = new Comparable[l1];
+        for (int i = 0; i < l1; i++) {
+            temp[i] = arr[low + i];
         }
-        int i = 0;  // index into lt
-        int j = q;  // index into a for right slice
-        int k = low;  // index into a for merged list
+        int i = 0;  // temp index tracker
+        int j = q;  // (q-high) index tracker
+        int k = low;  // index tracker for merged list
 
-        while (i < n1 && j < high) { //comparing the values of the arrays and merging
-            if (compare(lt[i], a[j]) <= 0) {
-                a[k] = lt[i];
+        while (i < l1 && j < high) {
+            if (compare(temp[i], arr[j]) <= 0) {
+                arr[k] = temp[i];
                 i++;
                 k++;
-            } else {
-                a[k] = a[j];
+            } 
+            else {
+                arr[k] = arr[j];
                 j++;
                 k++;
             }
         }
-        while (i < n1) { // copy remaining elements from right slice
-            a[k] = lt[i];
+        while (i < l1) { // kalanı kopyala
+            arr[k] = temp[i];
             i++;
             k++;
         }
-        // remaining elements from right slice are already in place
-        return a;
+        return arr;
     }
 
+    /**
+     * @param k number of slices
+     * @param low (included)
+     * @param high (excluded)
+     * @return the sorted array
+     */
     public Comparable[] mergeSort(Comparable[] arr, int k, int low, int high) {
-        // k amount of steps; low is first index of slice; r is last index of slice (excluded);
         if (high - low >= 2) {
             if (k > high - low) {
                 k = high - low;
             }    
-            Comparable[] pos = new Comparable[k + 1]; //array for saving the indices of the "splits"
+            int[] pos = new int[k + 1]; // array of positions
             for (int i = 0; i <= k; i++) {
-                pos[i] = (Comparable) (low + (high - low) * i / k); //saving the array indices
+                pos[i] = (low + (high - low) * i / k); // saving array positions
             }
             for (int i = 0; i < k; i++) {
-                mergeSort(arr, k, (int) pos[i], (int) pos[i + 1]); //sorting the arrays
+                mergeSort(arr, k,  pos[i], pos[i + 1]);
             }
             while (k > 1) {
                 int i = 1;
                 int n = 1;
                 for (i = 0; i < k - 1; i += 2) {
-                    // merge slices 2 at a time: this will produce the expected output
-                    // but is not a direct k-way merge.
-                    merge(arr, (int) pos[i], (int) pos[i + 1], (int) pos[i + 2]);
-                    System.out.println(Arrays.toString(arr));
+                    merge(arr, pos[i], pos[i + 1], pos[i + 2]);
+                    // System.out.println(Arrays.toString(arr));
                     pos[n++] = pos[i + 2];
                 }
                 if (i < k) {
@@ -82,8 +86,6 @@ public class GeneralizeMergeSortAnalyzer extends SortAnalyzer{
         return arr;
     }
 
-
-    
 
     // private void merge(Comparable[] arr, int start, int divide, int end) {
     //     int l1 = divide - start + 1;
