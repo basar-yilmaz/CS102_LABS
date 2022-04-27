@@ -21,7 +21,7 @@ public class Tester {
             System.out.println("-".repeat(31));
 
             for (ArrayGenerator generator : generators) {
-                Comparable[] arr = generator.generateC(31);
+                Comparable[] arr = generator.generateC(100);
                 System.out.printf("%s: %s\n","Unsorted List",Arrays.toString(arr));
                 analyzer.sort(arr);
                 if (analyzer.isSorted(arr)) {
