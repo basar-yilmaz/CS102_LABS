@@ -10,7 +10,7 @@ public class GeneralizeQuickSortAnalyzer extends SortAnalyzer{
 
     public Comparable[] sort(Comparable[] arr) {
         System.out.println("Generalize QuickSort");
-        quickSort(arr, 0, arr.length-1, 5);
+        quickSort(arr, 0, arr.length-1, 2);
         return arr;
     }
 
@@ -43,13 +43,12 @@ public class GeneralizeQuickSortAnalyzer extends SortAnalyzer{
             for (int i = 0; i < k-1; i++) {
                 pos[i] = partition(arr, low, high);
             }
+            
             quickSort(arr, low, pos[0]-1, k);
-            for (int i = 0; i < k-1; i++) {
-                quickSort(arr, pos[i]+1, high, k);
+            for (int i = 0; i < k-2; i++) {
+                quickSort(arr, pos[i]+1, pos[i+1]-1, k);
             }
-            // for (int i = k-1; i > 0; i--) {
-            //     quickSort(arr, pos[i]+1, high, k);
-            // }
+            quickSort(arr, pos[k-2]+1, high, k);
         }
     }
 

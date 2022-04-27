@@ -14,6 +14,21 @@ public class GeneralizeMergeSortAnalyzer extends SortAnalyzer{
         return mergeSort(arr, 2, 0, arr.length);
     }
 
+    // private Comparable[] mergeSortK(Comparable[] arr, int low, int high, int k) {
+    //     int q = (high-low) + 1;
+    //     if (q <= 0) {
+    //         return arr;
+    //     }
+    //     if (q <= k) {
+    //         mergeSortK(arr, low, high, q);
+    //         return arr;
+    //     }
+    //     int j = q;
+    //     for (int i = 0; i < k-1; i++) {
+    //         mergeSortK(arr, low , q, )
+    //     }
+    // }
+
     /**
      * Merge sort algorithm
      * @param low (included)
